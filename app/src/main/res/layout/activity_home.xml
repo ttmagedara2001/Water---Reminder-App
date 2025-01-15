@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <!-- Header -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Daily Water Intake"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Daily Goal -->
+    <TextView
+        android:id="@+id/tvDailyGoal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Daily Goal: 2000 ml"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Progress Bar -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:progress="0"
+        android:max="100"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="Water Intake Progress Bar" />
+
+    <!-- Progress Text -->
+    <TextView
+        android:id="@+id/tvProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Progress: 0 / 2000 ml"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Add Water Buttons -->
+    <Button
+        android:id="@+id/btnAdd250"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+250 ml"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@android:color/white"
+        android:contentDescription="Add 250 ml of water"
+        android:onClick = "addWaterIntake"
+        />
+
+    <Button
+        android:id="@+id/btnAdd500"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+500 ml"
+        android:backgroundTint="@color/teal_200"
+        android:textColor="@android:color/white"
+        android:contentDescription="Add 500 ml of water"
+        android:onClick = "addWaterIntake"/>
+
+</LinearLayout>
