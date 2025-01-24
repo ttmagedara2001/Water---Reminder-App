@@ -1,0 +1,77 @@
+private EditText etEmail, etPassword;
+    private Button btnLogin;
+    private TextView btnSignup;
+    private DatabaseHelper databaseHelper;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Initialize views
+        etEmail = findViewById(R.id.etEmail);
+        etPassword = findViewById(R.id.etPassword);
+        btnLogin = findViewById(R.id.btnLogin);
+        btnSignup = findViewById(R.id.tvSignup);
+
+        // Initialize DatabaseHelper
+        databaseHelper = new DatabaseHelper(this);
+
+        // Set up login button click listener
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleLogin();
+            }
+        });
+
+        // Set up signup button click listener
+        btnSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SignupActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void handleLogin() {
+        String email = etEmail.getText().toString().trim();
+        String password = etPassword.getText().toString().trim();
+
+        // Validate input
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(MainActivity.this, "Please fill out all fields", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Validate email format
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            Toast.makeText(MainActivity.this, "Invalid email format", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Validate password (check length or other criteria)
+        if (password.length() < 6) {
+            Toast.makeText(MainActivity.this, "Password must be at least 6 characters long", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Validate user credentials and get user ID
+        int userId = databaseHelper.validateUser(email, password);
+
+        if (userId != -1) {
+            Toast.makeText(MainActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
+
+            // Pass user ID to NotificationActivity
+            Intent intent = new Intent(MainActivity.this, NotificationActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt("USER_ID", userId);
+            intent.putExtras(bundle);
+            startActivity(intent);
+            finish();
+        } else {
+            Toast.makeText(MainActivity.this, "Invalid email or password", Toast.LENGTH_SHORT).show();
+        }
+    }
+}
