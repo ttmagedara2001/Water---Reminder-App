@@ -1,4 +1,6 @@
-![image](https://github.com/user-attachments/assets/e8435d60-68b6-406d-aaae-e31bb4e84f92)# H2O-Buddy
+# H2O-Buddy
+
+![image](https://github.com/user-attachments/assets/c5392d53-d6e3-4d94-83b7-e57e8f1f9bd8)
 
 A water reminder app
 Final Project for Mobile Application Development Using Java
