@@ -5,9 +5,9 @@
 A water reminder app
 Final Project for Mobile Application Development Using Java
 
-Purpose : Promote hydration and healthy habits.
-Target Audience : Busy individuals, health enthusiasts
-Core Idea : Mobile app for water reminder
+Purpose : Promote hydration and healthy habits.\n
+Target Audience : Busy individuals, health enthusiasts.\n
+Core Idea : Mobile app for water reminder.\n
 
 Technology Stack
 Java - Programming Language
